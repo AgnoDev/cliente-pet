@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.petz.clientepet.cliente.application.service.ClienteService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -46,5 +47,12 @@ public class ClienteController implements ClienteApi {
 		log.info("[login] - {}", idCliente);
 		log.info("[finish] - ClienteController - deletaClientePorId");
 		clienteService.deletaClientePorId(idCliente);
+	}
+
+	@Override
+	public void patchAlteraCliente(UUID idCliente, @Valid ClienteAlteraRequest clienteAlteraRequest) {
+		log.info("[start] - ClienteController - patchAlteraCliente");
+		log.info("[login] - {}", idCliente);
+		log.info("[finish] - ClienteController - patchAlteraCliente");
 	}
 }
