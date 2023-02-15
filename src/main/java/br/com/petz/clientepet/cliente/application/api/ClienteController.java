@@ -54,5 +54,7 @@ public class ClienteController implements ClienteApi {
 		log.info("[start] - ClienteController - patchAlteraCliente");
 		log.info("[login] - {}", idCliente);
 		log.info("[finish] - ClienteController - patchAlteraCliente");
+		clienteService.patchAlteraCliente(idCliente, clienteAlteraRequest);
+
 	}
 }
