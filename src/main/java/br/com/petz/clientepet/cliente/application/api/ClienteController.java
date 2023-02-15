@@ -45,6 +45,6 @@ public class ClienteController implements ClienteApi {
 		log.info("[start] - ClienteController - deletaClientePorId");
 		log.info("[login] - {}", idCliente);
 		log.info("[finish] - ClienteController - deletaClientePorId");
-
+		clienteService.deletaClientePorId(idCliente);
 	}
 }
