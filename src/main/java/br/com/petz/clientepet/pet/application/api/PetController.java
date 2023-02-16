@@ -39,7 +39,7 @@ public class PetController implements PetAPI {
 	public PetDetalhadoResponse getPetDetalhadoCliente(UUID idCliente, UUID idPet) {
 		log.info("[start] - PetController - getPetDetalhadoCliente");
 		log.info("[idCliente] - {} // [idPet] - {}", idCliente, idPet);
-		PetDetalhadoResponse pet  = petService.buscaPetsDoCliente(idCliente, idPet);
+		PetDetalhadoResponse pet = petService.buscaPetsDoCliente(idCliente, idPet);
 		log.info("[finish] - PetController - getPetDetalhadoCliente");
 		return pet;
 	}
@@ -50,10 +50,15 @@ public class PetController implements PetAPI {
 		log.info("[idCliente] - {} // [idPet] - {}", idCliente, idPet);
 		petService.deletaPetDoCliente(idCliente, idPet);
 		log.info("[finish] - PetController - deletePetDetalhadoCliente");
-		
+
+	}
+
+	@Override
+	public void patchPet(UUID idCliente, UUID idPet, @Valid PetAlteraRequest petAlteraRequest) {
+		log.info("[start] - PetController - patchPet");
+		log.info("[idCliente] - {} // [idPet] - {}", idCliente, idPet);
+		petService.alteraPetDoCliente(idCliente, idPet, petAlteraRequest);
+		log.info("[finish] - PetController - patchPet");
 	}
 
 }
-
-
-
